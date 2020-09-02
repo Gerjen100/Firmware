@@ -129,6 +129,7 @@ set(msg_files
 	telemetry_heartbeat.msg
 	telemetry_status.msg
 	test_motor.msg
+	thermal_cam.msg
 	timesync.msg
 	timesync_status.msg
 	trajectory_bezier.msg

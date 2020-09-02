@@ -1,0 +1,6 @@
+module_name: Flircamera Driver
+serial_config:
+  - command: flircamera start ${SERIAL_DEV} ${BAUD_PARAM}
+    port_config_param:
+      name: FLIR_SER_CFG
+      group: Flircamera
