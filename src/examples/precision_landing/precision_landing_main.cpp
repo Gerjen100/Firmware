@@ -38,7 +38,7 @@
  * @author Mark Charlebois <charlebm@gmail.com>
  */
 
-#include "precision_landing.h"
+#include "precision_landing.hpp"
 
 #include <px4_platform_common/app.h>
 #include <px4_platform_common/init.h>

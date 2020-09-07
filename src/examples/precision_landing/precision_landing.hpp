@@ -50,18 +50,42 @@
 #include <math.h>
 
 #include <uORB/uORB.h>
+#include <uORB/PublicationMulti.hpp>
 #include <uORB/topics/home_position.h>
+#include <uORB/topics/vehicle_local_position_setpoint.h>
 #include <uORB/topics/vehicle_local_position.h>
 #include <uORB/topics/thermal_cam.h>
+
+#define C_PI (double)3.141592653589793
+
+#define SLOW_DOWN_HEIGHT 3.0
+#define LANDING_HEIGHT 2.0
+#define LADNING_HEIGHT_LOWER_LIMIT 1.3
+
+#define CAMERA_RESOLUTION_X 336		//pixels
+#define CAMERA_RESOLUTION_Y 256
+#define CAMERA_FOV_X 35			//degrees
+#define CAMERA_FOV_Y 27
+
+#define MAXHORIZONTALSPEED 0.8 //set the maximum speed in m/s of autonomous flying.
+#define MAXVERICALSPEED 2.1
 
 class PrecisionLanding
 {
 public:
-	PrecisionLanding() {}
-
-	~PrecisionLanding() {}
+	PrecisionLanding();
+	//
+	~PrecisionLanding();
 
 	int main();
+	double toRadians(double degrees);
 
 	static px4::AppState appState; /* track requests to terminate app */
+
+private:
+	uORB::PublicationMulti<vehicle_local_position_setpoint_s>  _vehicle_local_position_setpoint_pub;
+
+	struct thermal_cam_s therm_cam;
+	struct vehicle_local_position_s vehicle_local_position;
+	struct home_position_s home_position;
 };

@@ -37,7 +37,7 @@
  * @author Thomas Gubler <thomasgubler@gmail.com>
  * @author Mark Charlebois <mcharleb@gmail.com>
  */
-#include "precision_landing.h"
+#include "precision_landing.hpp"
 
 #include <px4_platform_common/log.h>
 #include <px4_platform_common/app.h>
